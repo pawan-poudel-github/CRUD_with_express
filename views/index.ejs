@@ -1,0 +1,73 @@
+<%- include("partials/header.ejs",{pageTitle:"Home Page"}) %>
+    <div class="main">
+
+        <div class="left-form">
+            <div class="header">Add Student</div>
+            <form method="post">
+                <div class="input-wrapper">
+                    <input type="text" class="field" id="name" name="name" required >
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="number" class="field age" id="age" name="age" min="1" max="100" onkeyup="this.setAttribute('value', this.value);" value="" required >
+                    <label for="age">Age</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" class="field" id="class" name="class" required >
+                    <label for="class">Class</label>
+                </div>
+                <div class="buttons-wrapper">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+              
+              
+            </form>
+        </div>
+        <div class="right-table">
+            <div class="header">Student List</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>SN.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Class</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <% data.forEach((item,key)=>{%>
+                            <tr>
+                            <td>
+                                <%= key+1 %>
+                            </td>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%= item.age %>
+                            </td>
+                            <td>
+                                <%= item.class %>
+                            </td>
+                            <td class="action-button">
+                                <form action="/edit/<%= item._id %> "  >
+                                   <button class="fa-solid fa-pen" >
+                                   
+                                   </button> 
+                                </form>
+                                <form action="/delete/<%= item._id %>" method="post" >
+                                    <button class="fa-solid fa-trash"></button>
+                                </form>
+                            </td>
+                        </tr>
+                            <%}) %>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs",{pageTitle:"Edit Page"}) %> 
+<div class="main">
+    <div class="left-form">
+        <div class="header">Update Student</div>
+    <form method="post" action="/update/<%= data._id %>">
+            <div class="input-wrapper">
+                <input type="text" class="field" id="name" name="name" required value="<%= data.name %>">
+                <label for="name">Name</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="number" class="field" min="1" max="100" id="age" name="age" required value="<%= data.age %>">
+                <label for="age">Age</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="text" class="field" id="class" name="class" required value="<%= data.class %>">
+                <label for="class">Class</label>
+            </div>
+            <div class="buttons-wrapper">
+                <button type="submit">Submit</button>
+                <button><a href="/">Back</a></button>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %> 

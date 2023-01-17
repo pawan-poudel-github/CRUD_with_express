@@ -3,7 +3,7 @@ import {join} from 'path'
 // importing DB connector function 
 import connectDB from "./db/connectdb.js"
 import router from './routes/index.js';
-// process.env.PORT & DATABASE_URL is for production leve 
+// process.env.PORT & DATABASE_URL is for production level only 
 const port = process.env.PORT || 8000;
 const DATABASE_URL = process.env.DATABASE_URL || "mongodb://127.0.0.1:27017"  //default url of mongo db 
 
